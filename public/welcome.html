@@ -8,35 +8,77 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Iniciar sesion</title>
+    <title>Iniciar sesión</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,700;1,200&family=Unbounded:wght@400;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,700;1,200&family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap-icons.css" rel="stylesheet">
     <link href="css/propiedad_horizonte.css" rel="stylesheet">
+    <style>
+        .form-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 20px auto;
+        }
+        input, button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+        }
+    </style>
 </head>
 
 <body>
     <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
         <div class="container">
             <div class="row">
-
-                <div class="col-lg-6 col-12 mx-auto">
-                    <small>Haz iniciado sesion correctamente
-                    </small>
-                    <h1 class="text-white mt-2 mb-4 pb-2">
-                        Bienvenido a Propiedad Horizonte
-                    </h1>
-
+                <div class="col-lg-6 col-12 mx-auto text-center">
+                    <small>Haz iniciado sesión correctamente</small>
+                    <h1 class="text-white mt-2 mb-4 pb-2">Bienvenido a Propiedad Horizonte</h1>
                 </div>
             </div>
         </div>
-
     </section>
+
+    <div class="form-container">
+        <h2>Registro para la Asamblea</h2>
+        <form id="registroForm">
+            <label for="nombre">Nombre Completo:</label>
+            <input type="text" id="nombre" required>
+            
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" required>
+            
+            <label for="identificacion">Número de Identificación:</label>
+            <input type="text" id="identificacion" required>
+            
+            <button type="submit">Registrar</button>
+        </form>
+        <p id="mensaje" style="color: green;"></p>
+    </div>
+
+    <script>
+        document.getElementById('registroForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            let nombre = document.getElementById('nombre').value;
+            let email = document.getElementById('email').value;
+            let identificacion = document.getElementById('identificacion').value;
+            
+            if (nombre && email && identificacion) {
+                document.getElementById('mensaje').innerText = 'Registro exitoso. ¡Gracias por inscribirte!';
+                document.getElementById('registroForm').reset();
+            } else {
+                alert('Por favor complete todos los campos.');
+            }
+        });
+    </script>
 </body>
 
 </html>
